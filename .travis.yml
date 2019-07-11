@@ -4,9 +4,7 @@ script:
   - echo "skipping tests"
 
 after_success:
-  - set -e
-  - sudo apt-get install -y lftp
-  - lftp -c "set ftps:initial-prot ''; set ftps:ssl-force true; set ftps:ssl-protect-data true; set ssl:verify-certificate false; open ftps://$SFTP_USER:$SFTP_PASSWORD@$SFTP_HOST:22; mirror -eRv -x ^\.git/ . public/testing; quit;"
+  - curl --ftp-create-dirs -T README.md ftp://${SFTP_USER}:${SFTP_PASSWORD}@awlo.org/public_html/testing/README.md
   - echo "successful"
     
 notifications:
