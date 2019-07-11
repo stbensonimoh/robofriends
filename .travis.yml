@@ -6,7 +6,7 @@ script:
 after_success:
   deploy:
     provider: script
-    script: bash ./deploy.sh
+    script: bash deploy.sh
     
 notifications:
   slack: awlo:mqg8PBtixOi6JjasSaRdAsRl
