@@ -4,7 +4,7 @@ script:
   - echo "skipping tests"
 
 after_success:
-  - find . -type d -prune -o -name "*" -print -exec curl --ftp-create-dirs -T {} ftp://awlo.org/public_html/testing/ --user ${SFTP_USER}:${SFTP_PASSWORD} \;
+  - find . -type d -print -exec curl --ftp-create-dirs -T {} ftp://awlo.org/public_html/testing/ --user ${SFTP_USER}:${SFTP_PASSWORD} \;
   - echo "successful"
     
 notifications:
