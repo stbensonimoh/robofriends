@@ -4,7 +4,7 @@ script:
   - echo "skipping tests"
 
 after_success:
-  - curl --ftp-create-dirs -T README.md ftp://${SFTP_USER}:${SFTP_PASSWORD}@awlo.org/public_html/testing/README.md
+  - curl -u --ftp-create-dirs -T README.md ${SFTP_USER}:${SFTP_PASSWORD} ftp://awlo.org:21/public_html/testing/README.md
   - echo "successful"
     
 notifications:
